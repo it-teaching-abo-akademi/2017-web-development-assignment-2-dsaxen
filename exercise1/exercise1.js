@@ -30,6 +30,10 @@ function changeBackgroundToWhite(){
 function processInformation(){ //parsing the bar code
     barcode = document.getElementById("barcodeinput").value.trim(); //trim spaces away
     
+    if (barcode == "") {
+        alert("You must type a barcode");
+        return false;
+    }
     //IBAN
     var version = barcode.substr(0,1);
     var accountnumber = "FI"+barcode.substr(1,16);
