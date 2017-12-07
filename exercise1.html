@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="exercise1.css">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="JsBarcode.all.min.js"></script>
+    <script src="exercise1.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="page">
+    <div id="titlebar">
+        <p id="ptitle">Barcode decoder</p>
+    </div>
+        <form id="barcodeform">
+            Virtual bar code: <input type="text" id="barcodeinput" placeholder="enter the virtual code here"></input>
+            <input type="button" value="Decode" id="barcodesubmit">
+        </form>
+        <div id="buttondiv">
+            <button id="togglebutton">Hide</button>
+        </div>
+        <div id="information">
+                <div id="firstline">
+                    <p id="iban">Payee's IBAN:</p>
+                    <p id="reference">Payment reference:</p>
+                </div>
+                <div id="secondline">
+                    <p id="amount">Amount to be paid:</p>
+                    <p id="duedate">Due date:</p>
+                </div>
+                <div id="thirdline">
+                    <canvas id="barcodecanvas">BAR CODE HERE</canvas>
+                </div>
+                
+        </div>
+    </div>
+       
+</body>
+</html>
