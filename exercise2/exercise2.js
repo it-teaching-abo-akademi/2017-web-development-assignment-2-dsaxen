@@ -1,6 +1,8 @@
 window.onload=function(){ //this function is executed after DOM has loaded
     window.setTimeout(loadInformation,50); //load localstorage
-	
+    document.getElementById("searchbutton").onclick = function fun() {
+	    FetchInformation();
+	    }
     //when clicking the search button, we used the API and parse the data. 
 }
 function loadInformation(){
@@ -55,7 +57,7 @@ function loadInformation(){
     }
     map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location	
 }
-document.getElementById("searchbutton").onclick=function(){
+function fetchInformation(){
     alert("FETCH");
     countrylist = document.getElementById("countrylist"); 
     zipcode = document.getElementById("zipcodeinput").value.trim(); //trim spaces away
