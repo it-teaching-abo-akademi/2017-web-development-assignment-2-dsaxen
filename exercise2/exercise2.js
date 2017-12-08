@@ -58,7 +58,7 @@ function fetchInformation(){
     countrylist = document.getElementById("countrylist"); 
     zipcode = document.getElementById("zipcodeinput").value.trim(); //trim spaces away
     country = countrylist.options[countrylist.selectedIndex].value;
-    url = "http://api.zippopotam.us/" + country + "/" + zipcode;
+    url = "https://api.zippopotam.us/" + country + "/" + zipcode;
     
     //some of the code is from the zippopotamus frontpage JSON example
     var client = new XMLHttpRequest();
