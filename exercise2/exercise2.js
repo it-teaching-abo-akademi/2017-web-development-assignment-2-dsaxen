@@ -3,7 +3,7 @@ window.onload=function(){ //this function is executed after DOM has loaded
 	
     //when clicking the search button, we used the API and parse the data. 
 }
-document.getElementById("searchbutton").onclick = fetchInformation;
+document.getElementById("searchbutton").onclick
 function loadInformation(){
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
@@ -54,8 +54,8 @@ function loadInformation(){
             marker.setMap(map);
     }
     map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location
-}
-function fetchInformation(){
+	
+document.getElementById("searchbutton").onclick=function(){
     alert("FETCH");
     countrylist = document.getElementById("countrylist"); 
     zipcode = document.getElementById("zipcodeinput").value.trim(); //trim spaces away
