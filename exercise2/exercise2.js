@@ -6,7 +6,7 @@ window.onload=function(){ //this function is executed after DOM has loaded
 function loadInformation(){
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
-    if (historicaldata == "[]"){
+    if (historicaldata === "[]"){
         return;
     }
     var count = Object.keys(historicaldata).length; //amount of locations in history
