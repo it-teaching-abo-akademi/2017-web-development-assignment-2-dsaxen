@@ -103,8 +103,14 @@ function fetchInformation(){
         var div = document.getElementById("searchhistory");
         
         if (oldCount == 10){ //we do not add more rows and paragraphs in this case
-        
-            tbl.rows[1].cells[0].innerHTML = placename;
+
+            for (i = oldCount-1; i>0; i--){ //shift positions on all other rows
+                tbl.rows[i+1].cells[0].innerHTML = tbl.rows[i].cells[0].innerHTML;
+                tbl.rows[i+1].cells[1].innerHTML = tbl.rows[i].cells[1].innerHTML;
+                tbl.rows[i+1].cells[2].innerHTML = tbl.rows[i].cells[2].innerHTML;
+            }
+                        
+            tbl.rows[1].cells[0].innerHTML = placename; //replace first row data
             tbl.rows[1].cells[1].innerHTML = longitude;
             tbl.rows[1].cells[2].innerHTML = latitude;
             
