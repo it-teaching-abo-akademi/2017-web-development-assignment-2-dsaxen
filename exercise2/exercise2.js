@@ -1,6 +1,6 @@
 window.onload=function(){ //this function is executed after DOM has loaded
-    document.getElementById("searchbutton").onclick = fetchInformation; //when clicking the search button, we used the API and parse the data. 
     loadInformation(); //load localstorage
+    document.getElementById("searchbutton").onclick = fetchInformation; //when clicking the search button, we used the API and parse the data. 
 }
 
 function loadInformation(){
