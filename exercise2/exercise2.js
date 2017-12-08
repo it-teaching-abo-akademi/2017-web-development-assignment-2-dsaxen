@@ -9,6 +9,9 @@ window.onload = pageLoad; //let the DOM tree load elements
 function loadInformation(){
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
+    if (historicaldata = "[]"){
+        return;
+    }
     var count = Object.keys(historicaldata).length; //amount of locations in history
     
     var tbl = document.getElementById("myTable");
@@ -55,7 +58,6 @@ function loadInformation(){
     map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location
 }
 function fetchInformation(){
-    
     countrylist = document.getElementById("countrylist"); 
     zipcode = document.getElementById("zipcodeinput").value.trim(); //trim spaces away
     country = countrylist.options[countrylist.selectedIndex].value;
@@ -67,9 +69,8 @@ function fetchInformation(){
     client.open("GET", url, true);
     client.onreadystatechange = function() {
         if(client.readyState == 4) {
-            
+        alert("WTF");
         data = JSON.parse(client.responseText);
-       
         
         var datalist = [];
         var placename = data.places[0]["place name"]; //for the table containing placename, longitude and latitude
