@@ -69,7 +69,6 @@ function fetchInformation(){
     client.open("GET", url, true);
     client.onreadystatechange = function() {
         if(client.readyState == 4) {
-        alert("WTF");
         data = JSON.parse(client.responseText);
         
         var datalist = [];
