@@ -55,6 +55,7 @@ function loadInformation(){
     map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location
 }
 function fetchInformation(){
+    alert("FETCH");
     countrylist = document.getElementById("countrylist"); 
     zipcode = document.getElementById("zipcodeinput").value.trim(); //trim spaces away
     country = countrylist.options[countrylist.selectedIndex].value;
