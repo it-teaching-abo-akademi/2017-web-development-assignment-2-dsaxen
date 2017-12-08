@@ -1,7 +1,7 @@
 window.onload=function(){ //this function is executed after DOM has loaded
-    window.setTimeout(loadInformation,50); //load localstorage
+    window.setTimeout(loadInformation(),50); //load localstorage
 	
-    document.getElementById("searchbutton").onclick = fetchInformation; //when clicking the search button, we used the API and parse the data. 
+    document.getElementById("searchbutton").onclick = fetchInformation(); //when clicking the search button, we used the API and parse the data. 
 }
 
 function loadInformation(){
