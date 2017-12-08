@@ -3,7 +3,6 @@ window.onload=function(){ //this function is executed after DOM has loaded
 	
     //when clicking the search button, we used the API and parse the data. 
 }
-document.getElementById("searchbutton").onclick
 function loadInformation(){
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
