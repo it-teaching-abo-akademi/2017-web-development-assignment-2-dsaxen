@@ -1,9 +1,7 @@
-function pageLoad(){
-    loadInformation(); //load localstorage
+window.onload=function(){ //this function is executed after DOM has loaded
     document.getElementById("searchbutton").onclick = fetchInformation; //when clicking the search button, we used the API and parse the data. 
+    loadInformation(); //load localstorage
 }
-
-window.onload = pageLoad; //let the DOM tree load elements
 
 function loadInformation(){
     //we now load the localstorage JSON
