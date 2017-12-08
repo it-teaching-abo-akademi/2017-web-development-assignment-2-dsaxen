@@ -1,12 +1,9 @@
 window.onload=function(){ //this function is executed after DOM has loaded
-    window.setTimeout(loadInformation,50); //load localstorage
-    document.getElementById("searchbutton").onclick = function fun() {
-	    FetchInformation();
-	    }
-    //when clicking the search button, we used the API and parse the data. 
+    document.getElementById("searchbutton").onclick = fetchInformation; //when clicking the search button, we used the API and parse the data. 
+    loadInformation(); //load localstorage
 }
+
 function loadInformation(){
-    alert("Load");
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
     if (historicaldata === "[]"){
@@ -55,7 +52,7 @@ function loadInformation(){
             });
             marker.setMap(map);
     }
-    map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location	
+    map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location
 }
 function fetchInformation(){
     alert("FETCH");
