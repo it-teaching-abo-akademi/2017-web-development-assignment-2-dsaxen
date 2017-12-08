@@ -6,7 +6,7 @@ window.onload=function(){ //this function is executed after DOM has loaded
 function loadInformation(){
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
-    if (historicaldata === "[]"){
+    if (historicaldata == "[]"){
         return;
     }
     var count = Object.keys(historicaldata).length; //amount of locations in history
@@ -82,10 +82,15 @@ function fetchInformation(){
         datalist.push(zipcode);
         
         var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
-        
+        alert(historicaldata);
         var oldCount = Object.keys(historicaldata).length; //amount of locations in history
         localStorage.setItem('datalist', JSON.stringify(datalist)); //save to localstorage the new item
-        if (oldCount > 9){ //we have reached the limit, we store only 10 searches maximum
+
+        if (oldCount > 9){ //we have reached the limit, we store only 10 searches, we need to replace the last element
+
+            for(i = 0; i<oldCount-1; i++){ //we move every element up to make room for the newest one
+                historicaldata[i] = historicaldata[i+1];
+            }
             historicaldata[9] = datalist;
             localStorage.setItem('datalist', JSON.stringify(historicaldata)); //save the list
             count = Object.keys(historicaldata).length;
