@@ -53,8 +53,8 @@ function loadInformation(){
             });
             marker.setMap(map);
     }
-    map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location
-	
+    map.setCenter(new google.maps.LatLng(historicaldata[count-1][2], historicaldata[count-1][1])); //center the newest location	
+}
 document.getElementById("searchbutton").onclick=function(){
     alert("FETCH");
     countrylist = document.getElementById("countrylist"); 
