@@ -4,6 +4,7 @@ window.onload=function(){ //this function is executed after DOM has loaded
 }
 
 function loadInformation(){
+    alert("LOAD");
     //we now load the localstorage JSON
     var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
     if (historicaldata == "[]"){
@@ -82,7 +83,6 @@ function fetchInformation(){
         datalist.push(zipcode);
         
         var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
-        alert(historicaldata);
         var oldCount = Object.keys(historicaldata).length; //amount of locations in history
         localStorage.setItem('datalist', JSON.stringify(datalist)); //save to localstorage the new item
 
