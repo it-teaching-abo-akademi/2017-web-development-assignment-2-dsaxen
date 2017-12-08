@@ -82,6 +82,7 @@ function fetchInformation(){
         datalist.push(zipcode);
         
         var historicaldata = JSON.parse(localStorage.getItem("datalist") || "[]"); //request the old list, historicaldata is an empty list if localstorage is empty.
+        alert(historicaldata);
         var oldCount = Object.keys(historicaldata).length; //amount of locations in history
         localStorage.setItem('datalist', JSON.stringify(datalist)); //save to localstorage the new item
 
