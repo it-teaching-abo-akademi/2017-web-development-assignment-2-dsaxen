@@ -10,11 +10,11 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
     document.getElementById("busButton").onclick = showBuses; //show current location of all buses operating on the bus line selected
     document.getElementById("refreshButton").onclick = refreshBuses; //when clicking the search button, we used the API and parse the data. 
     document.getElementById("routeButton").onclick = showRoutes; //when clicking the search button, we used the API and parse the data. 
-
+    
     document.getElementById('lineList').onchange = function() { //if you change the route line, "Hide buses" button becomes "Show buses"
         document.getElementById("busButton").value = "Show buses";
     }
-
+    
     getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
 
@@ -94,6 +94,7 @@ function refreshBuses(){ //just run the showLocations
 }
 function showRoutes(){
     var routeList = document.getElementById("lineList");
+    storedName = routeList.options[routeList.selectedIndex].text; //store name so that we can now when to remove old route
     var routeId = routeList.options[routeList.selectedIndex].value; //we use ID because that is what FÖLI uses
     acquireTrips(routeId); 
 }
