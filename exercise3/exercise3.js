@@ -81,7 +81,7 @@ function setMapOnAll(map) {
 function showBuses(){ //event fired when user clicks on Show buses / Hide buses
     var button = document.getElementById("busButton");
     if (button.value == "Show buses"){
-        getRequest("http://data.foli.fi/siri/vm", showLocations); //fallback to showLocations
+        getRequest("https://data.foli.fi/siri/vm", showLocations); //fallback to showLocations
         button.value = "Hide buses";
     }
     else if (button.value == "Hide buses"){
@@ -90,7 +90,7 @@ function showBuses(){ //event fired when user clicks on Show buses / Hide buses
     }
 }
 function refreshBuses(){ //just run the showLocations
-    getRequest("http://data.foli.fi/siri/vm", showLocations); //fallback to showLocations
+    getRequest("https://data.foli.fi/siri/vm", showLocations); //fallback to showLocations
 }
 function showRoutes(){
     var routeList = document.getElementById("lineList");
@@ -157,10 +157,10 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
 //SHOW ROUTES BUTTON CALLBACK FUNCTIONS
 
 function acquireTrips(routeId){ //acquire trips for this route id
-    getRequest("http://data.foli.fi/gtfs/v0/20171130-162538/trips/route/" + routeId, acquireShape); //fallback to acquire shape
+    getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/trips/route/" + routeId, acquireShape); //fallback to acquire shape
 }
 function acquireShape(trips){ //choose random shape_id and use it for acquiring coordinates from shapes.txt
-    getRequest("http://data.foli.fi/gtfs/v0/20171130-162538/shapes/" + trips[1].shape_id, drawRoute); 
+    getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/shapes/" + trips[1].shape_id, drawRoute); 
 }
 function drawRoute(coordinates){ //draw route based on fetched coordinates
 
