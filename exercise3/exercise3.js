@@ -135,6 +135,7 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
     
     if (routePath != undefined && routeList.options[routeList.selectedIndex].text != storedName){ //if there is an old path for another route line..
         routePath.setMap(null); //..we delete the old path
+        pathBounds = ""; //and reset the bounds
     }
 
     var routeList = document.getElementById("lineList");
