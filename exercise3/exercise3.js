@@ -98,10 +98,11 @@ function refreshBuses(){ //just run the showLocations
 }
 function showRoutes(){
     var routeList = document.getElementById("lineList");
-    storedName = routeList.options[routeList.selectedIndex].text; //store name so that we can now when to remove old route
     if(routeList.options[routeList.selectedIndex].text != storedName){ //if the chosen route is not the same as the route for markers...
         deleteMarkers(); //...we remove the markers
     }
+    
+    storedName = routeList.options[routeList.selectedIndex].text; //store new name so that we can now when to remove old route if we want new markers
     var routeId = routeList.options[routeList.selectedIndex].value; //we use ID because that is what FÖLI uses
     acquireTrips(routeId); 
 }
