@@ -1,0 +1,92 @@
+html *{
+    font-family: Arial;
+}
+#titlebar {
+    position: fixed;
+    top: 0;
+    width: 102%;
+    background-color: lightgrey;
+    margin-left: -15px;
+    height: 30px;
+}
+#titlebar p{
+    margin-left: 35px;
+    font-size: 25px;
+    margin-top: 0px;
+}
+#page{
+    width: 100%;
+    position: relative;
+}
+#content{
+    margin-left: 25px;
+}
+#lineForm{
+    margin-top: 70px;
+    margin-left: 40px;
+}
+#busButton, #refreshButton, #routeButton{
+    background-color: lightgrey;
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-right: 100px;
+    display: inline-block;
+    margin-left: 65px;
+}
+select{
+    width: 200px;
+    height: 40px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+label{
+    float: left;
+    margin-left: -30px;
+    margin-right: 15px;
+    line-height: 40px;
+    font-size: 18px;
+}
+#searchhistory{
+    float: right;
+    width: 500px;
+    height: 100px;
+    border: 1px solid black;
+    margin-right: 900px;
+    margin-top: 50px;
+    display: none;
+}
+#headertitle{
+    text-align: center;
+}
+#tableDiv{
+    margin-top: 30px;
+    float: left;
+}
+#myTable{
+    border: 1px solid black;
+    width: 30%;
+    display: none;
+    margin-top: 30px;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+td{
+    border: 1px solid black;
+    padding: 15px;
+}
+th{
+    background-color: lightgrey;
+    border: 1px solid black;
+    width: 50%;
+    padding: 15px;
+    text-align: left;
+}
+#mapWrap{
+    margin-bottom: 100px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
