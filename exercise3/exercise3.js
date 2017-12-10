@@ -3,6 +3,7 @@ var routes;
 var map;
 var routePath;
 var storedName;
+var pathBounds;
 
 window.onload=function(){ //this function is executed after DOM has fully loaded
 
@@ -61,6 +62,9 @@ function addMarker(location) {
         bounds.extend(markerList[i].getPosition());
     }
     map.fitBounds(bounds); //fit bounds according to markers
+    if (pathBounds){
+        map.fitBounds(pathBounds);
+    }
 }
 function deleteMarkers(){
     setMapOnAll(null);
@@ -124,6 +128,7 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
     var routeList = document.getElementById("lineList");
 
     deleteMarkers(); //delete old markers
+    
     if (routePath != undefined && routeList.options[routeList.selectedIndex].text != storedName){ //if there is an old path for another route line..
         routePath.setMap(null); //..we delete the old path
     }
@@ -186,6 +191,7 @@ function drawRoute(coordinates){ //draw route based on fetched coordinates
         strokeWeight: 3
       });
     routePath.setMap(map);
+    pathBounds = bounds;
     map.fitBounds(bounds); //fit map according to the bounds
 
 }
