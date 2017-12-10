@@ -99,6 +99,9 @@ function refreshBuses(){ //just run the showLocations
 function showRoutes(){
     var routeList = document.getElementById("lineList");
     storedName = routeList.options[routeList.selectedIndex].text; //store name so that we can now when to remove old route
+    if(routeList.options[routeList.selectedIndex].text != storedName){ //if the chosen route is not the same as the route for markers...
+        deleteMarkers(); //...we remove the markers
+    }
     var routeId = routeList.options[routeList.selectedIndex].value; //we use ID because that is what FÖLI uses
     acquireTrips(routeId); 
 }
@@ -169,7 +172,6 @@ function acquireShape(trips){ //choose random shape_id and use it for acquiring 
     getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/shapes/" + trips[1].shape_id, drawRoute); 
 }
 function drawRoute(coordinates){ //draw route based on fetched coordinates
-
     var locations = [];
     var bounds = new google.maps.LatLngBounds();
 
