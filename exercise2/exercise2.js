@@ -41,7 +41,7 @@ function loadInformation(){
     //GOOGLE MAPS
     var map = new google.maps.Map(
             document.getElementById('map'), {
-            zoom: 9, 
+            zoom: 12, 
             center: new google.maps.LatLng(historicaldata[0][2], historicaldata[0][1]),}); 
             
     var marker; 
