@@ -166,12 +166,11 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
 }
 
 //SHOW ROUTES BUTTON CALLBACK FUNCTIONS
-
 function acquireTrips(routeId){ //acquire trips for this route id
-    getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/trips/route/" + routeId, acquireShape); //fallback to acquire shape
+    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/trips/route/" + routeId, acquireShape); //fallback to acquire shape
 }
 function acquireShape(trips){ //choose random shape_id and use it for acquiring coordinates from shapes.txt
-    getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/shapes/" + trips[1].shape_id, drawRoute); 
+    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/shapes/" + trips[1].shape_id, drawRoute); 
 }
 function drawRoute(coordinates){ //draw route based on fetched coordinates
     var locations = [];
