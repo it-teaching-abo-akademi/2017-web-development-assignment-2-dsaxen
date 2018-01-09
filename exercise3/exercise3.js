@@ -16,7 +16,7 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
         document.getElementById("busButton").value = "Show buses";
     }
     
-    getRequest("https://data.foli.fi/gtfs/v0/20171130-162538/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
+    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
 
 // A SIMPLE GET REQUEST FUNCTION
