@@ -18,7 +18,7 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
     }
     getRequest("https://data.foli.fi/gtfs/", getLatestDataSet); //get latest bus data
     
-    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
+    getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
 
 // A SIMPLE GET REQUEST FUNCTION
@@ -35,7 +35,7 @@ function getRequest(url, callback){
 }
 
 function getLatestDataSet(data){
-    console.log(data["datasets"][0]);
+    dataSet = data["datasets"][0];
 }
 
 //A SIMPLE COMPARATOR 
@@ -173,10 +173,10 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
 
 //SHOW ROUTES BUTTON CALLBACK FUNCTIONS
 function acquireTrips(routeId){ //acquire trips for this route id
-    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/trips/route/" + routeId, acquireShape); //fallback to acquire shape
+    getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/trips/route/" + routeId, acquireShape); //fallback to acquire shape
 }
 function acquireShape(trips){ //choose random shape_id and use it for acquiring coordinates from shapes.txt
-    getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/shapes/" + trips[1].shape_id, drawRoute); 
+    getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/shapes/" + trips[1].shape_id, drawRoute); 
 }
 function drawRoute(coordinates){ //draw route based on fetched coordinates
     var locations = [];
