@@ -4,6 +4,7 @@ var map;
 var routePath;
 var storedName;
 var pathBounds;
+var dataSet;
 
 window.onload=function(){ //this function is executed after DOM has fully loaded
 
@@ -15,6 +16,7 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
     document.getElementById('lineList').onchange = function() { //if you change the route line, "Hide buses" button becomes "Show buses"
         document.getElementById("busButton").value = "Show buses";
     }
+    getRequest("https://data.foli.fi/gtfs/", getLatestDataSet); //get latest bus data
     
     getRequest("https://data.foli.fi/gtfs/v0/20180103-020240/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
@@ -30,6 +32,10 @@ function getRequest(url, callback){
     }
     xmlHttp.open("GET", url, true); //true for asynchronous
     xmlHttp.send();
+}
+
+function getLatestDataSet(data){
+    console.log(data["datasets"][0]);
 }
 
 //A SIMPLE COMPARATOR 
