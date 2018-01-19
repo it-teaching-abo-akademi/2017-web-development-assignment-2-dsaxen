@@ -7,7 +7,6 @@ var pathBounds;
 var dataSet;
 
 window.onload=function(){ //this function is executed after DOM has fully loaded
-
     //buttons onclick
     document.getElementById("busButton").onclick = showBuses; //show current location of all buses operating on the bus line selected
     document.getElementById("refreshButton").onclick = refreshBuses; //when clicking the search button, we used the API and parse the data. 
@@ -17,11 +16,7 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
         document.getElementById("busButton").value = "Show buses";
     }
     getRequest("https://data.foli.fi/gtfs/", getLatestDataSet); //get latest bus data
-    console.log(dataSet);
-    console.log("HI");
-    getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
-
 // A SIMPLE GET REQUEST FUNCTION
 function getRequest(url, callback){
     var xmlHttp = new XMLHttpRequest();
@@ -34,14 +29,10 @@ function getRequest(url, callback){
     xmlHttp.open("GET", url, true); //true for asynchronous
     xmlHttp.send();
 }
-
 function getLatestDataSet(data){
     dataSet = data["datasets"][0];
+     getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
-function fetchData(){
-    return dataSet;
-}
-
 //A SIMPLE COMPARATOR 
 function compare(item1,item2) { 
         if (String(item1[1]) < String(item2[1])){ //lexicographic compare
@@ -52,9 +43,7 @@ function compare(item1,item2) {
         }
         return 0;
 }
-
 //GOOGLE MAPS FUNCTIONS
-
 function initMap(){
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 60.45, lng: 22.35}, //initially around turku 
@@ -90,7 +79,6 @@ function setMapOnAll(map) {
       markerList[i].setMap(map);
     }
 }
-
 //THREE BUTTONS FUNCTIONS
 function showBuses(){ //event fired when user clicks on Show buses / Hide buses
     var button = document.getElementById("busButton");
@@ -116,10 +104,7 @@ function showRoutes(){
     var routeId = routeList.options[routeList.selectedIndex].value; //we use ID because that is what FÖLI uses
     acquireTrips(routeId); 
 }
-
-
 //CALLBACK FUNCTIONS
-
 //FETCH ROUTE LIST TO DROPDOWN MENU
 function fetchRouteList(routeList){
     var routeChoices = [];
@@ -135,9 +120,7 @@ function fetchRouteList(routeList){
         $("#lineList").append($("<option></option>").attr("value", routeId).text(routeName)); //add element to dropdown list
     }
 }
-
 //SHOW BUSES BUTTON AND REFRESH BUTTON CALLBACK FUNCTION
-
 function showLocations(data){ //fetch the locations by filtering the bus line from the JSON which we got from showBuses and then add markers on map
     var routeList = document.getElementById("lineList");
 
@@ -174,7 +157,6 @@ function showLocations(data){ //fetch the locations by filtering the bus line fr
         button.value = "Show buses";
     }
 }
-
 //SHOW ROUTES BUTTON CALLBACK FUNCTIONS
 function acquireTrips(routeId){ //acquire trips for this route id
     getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/trips/route/" + routeId, acquireShape); //fallback to acquire shape
@@ -206,5 +188,4 @@ function drawRoute(coordinates){ //draw route based on fetched coordinates
     routePath.setMap(map);
     pathBounds = bounds;
     map.fitBounds(bounds); //fit map according to the bounds
-
 }
