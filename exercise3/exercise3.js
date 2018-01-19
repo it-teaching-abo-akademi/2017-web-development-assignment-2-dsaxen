@@ -37,6 +37,9 @@ function getRequest(url, callback){
 function getLatestDataSet(data){
     dataSet = data["datasets"][0];
 }
+function fetchData(){
+    return dataSet;
+}
 
 //A SIMPLE COMPARATOR 
 function compare(item1,item2) { 
