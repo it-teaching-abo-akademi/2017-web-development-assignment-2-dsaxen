@@ -17,7 +17,7 @@ window.onload=function(){ //this function is executed after DOM has fully loaded
         document.getElementById("busButton").value = "Show buses";
     }
     getRequest("https://data.foli.fi/gtfs/", getLatestDataSet); //get latest bus data
-    
+    console.log(dataSet);
     getRequest("https://data.foli.fi/gtfs/v0/"+ dataSet + "/routes", fetchRouteList); //we need to fetch the route names to the drop-down list
 }
 
