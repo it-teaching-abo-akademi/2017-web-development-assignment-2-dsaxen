@@ -62,31 +62,9 @@ label{
 #headertitle{
     text-align: center;
 }
-#tableDiv{
-    margin-top: 30px;
-    float: left;
-}
-#myTable{
-    border: 1px solid black;
-    width: 30%;
-    display: none;
-    margin-top: 30px;
-    border-collapse: collapse;
-    margin-bottom: 50px;
-}
-td{
-    border: 1px solid black;
-    padding: 15px;
-}
-th{
-    background-color: lightgrey;
-    border: 1px solid black;
-    width: 50%;
-    padding: 15px;
-    text-align: left;
-}
 #mapWrap{
     margin-bottom: 100px;
     margin-top: 30px;
     margin-left: 50px;
+    width: 80%;
 }
