@@ -96,8 +96,8 @@ function refreshBuses(){ //just run the showLocations
 }
 function showRoutes(){
     var routeList = document.getElementById("lineList");
-    console.log(routeList);
-    if(routeList == null){
+    console.log(routeList.options[routeList.selectedIndex].text);
+    if(routeList.options[routeList.selectedIndex].text == null){
         alert("You have not selected any route.");
         return;
     }
