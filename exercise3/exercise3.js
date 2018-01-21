@@ -92,6 +92,7 @@ function showBuses(){ //event fired when user clicks on Show buses / Hide buses
     }
 }
 function refreshBuses(){ //just run the showLocations
+    document.getElementById("busButton").value = "Hide buses";
     getRequest("https://data.foli.fi/siri/vm", showLocations); //fallback to showLocations
 }
 function showRoutes(){
